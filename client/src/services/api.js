@@ -1,14 +1,11 @@
 /**
  * api.js – Axios instance for all backend calls.
  * SRS §7.2: Frontend to Backend – REST API requests.
- * Falls back gracefully when server is unreachable (demo mode).
  */
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL || '/api';
-
 const api = axios.create({
-  baseURL: BASE_URL,
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 15000,
   headers: { 'Content-Type': 'application/json' },
 });
